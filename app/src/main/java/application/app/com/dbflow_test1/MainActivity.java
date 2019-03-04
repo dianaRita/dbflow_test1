@@ -7,6 +7,9 @@ import android.widget.ProgressBar;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import com.raizlabs.android.dbflow.config.FlowConfig;
+import com.raizlabs.android.dbflow.config.FlowManager;
+
 public class MainActivity extends AppCompatActivity {
 
     private Button btnIns, btnCons, btnAct, btnElim;
@@ -28,7 +31,10 @@ public class MainActivity extends AppCompatActivity {
         this.tCant = findViewById(R.id.tCant);
         this.tCnsl = findViewById(R.id.tCnsl);
 
-        //new Controlador(this);
+        // dbFlow config
+        FlowManager.init( new FlowConfig.Builder(this.getApplicationContext()).build() );
+
+        new Controlador(this);
 
     }
 
